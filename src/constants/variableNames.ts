@@ -1,6 +1,8 @@
 // const LOCAL_BACK_END_PROD_PROXY = "192.168.100.2"
 const LOCAL_BACK_END_PROD_PROXY = "192.168.100.2"
+// const LOCAL_BACK_END_PROD_PROXY = "172.20.10.3"
 const ONLINE_BACK_END_PROD_PROXY = "exp-recorder.up.railway.app"
+
 const TOTAL_AMOUNT = "total_amount"
 const DATE = "date"
 const OPERATION_TYPE = "operation_type"
