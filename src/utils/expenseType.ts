@@ -1,4 +1,4 @@
-const expanseType = [
+const expenseType = [
     {value:"errands", label:"Errands"},
     {value:"purchase_goods", label:"Purchase Goods"},
     {value:"daily_food", label:"Daily Food"},
@@ -6,5 +6,5 @@ const expanseType = [
 ]
 
 export {
-    expanseType
+    expenseType
 }
