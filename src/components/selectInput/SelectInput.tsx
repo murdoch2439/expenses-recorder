@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from "react";
 import {Grid,Typography, TextField, FormControl, MenuItem,  } from '@mui/material';
-import {expanseType} from "../../utils/expanseType";
+import {expenseType} from "../../utils/expenseType";
 
 type props = {
     label?:string,
@@ -26,7 +26,7 @@ const SelectInput : FunctionComponent<props> =({ label, stuff, name})=>{
                         helperText={stuff.errors[name] && stuff.touched[name] && stuff.errors[name]}
 
                     >
-                        {expanseType.map((option) => (
+                        {expenseType.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                             </MenuItem>
