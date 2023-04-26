@@ -1,4 +1,4 @@
-import {FunctionComponent} from 'react'
+import React, {FunctionComponent} from 'react'
 import Header from "../components/header/Header"
 import Footer from '../components/footer/Footer'
 import "./container.css"
@@ -14,7 +14,6 @@ const Container: FunctionComponent<props>=({children})=>{
             <div className={"main__container"}>
                 {children}
             </div>
-
             <Footer />
         </>
     )
