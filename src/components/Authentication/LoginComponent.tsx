@@ -13,7 +13,6 @@ import {useUserContext} from "../../context/UserContext";
 interface FormValues {
     username:  string;
     password: string;
-    // operation_type: string;
 }
 
 const validationSchema = Yup.object({
