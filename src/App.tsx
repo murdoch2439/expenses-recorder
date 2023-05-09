@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "./components/themes/theme";
@@ -9,23 +9,48 @@ import TextInput from "./components/textInput/TextInput";
 import FormsManager from "./components/formsManager/FormsManager";
 import {StateProvider} from "./context";
 import FormManagerForContribution from "./components/formsManager/FormManagerForContribution";
+import {LoginComponent} from "./components/Authentication/LoginComponent";
+import {MyUserContext, userType} from "./context/UserContext";
+import {SummaryCard} from "./components/SummaryCard/SummaryCard";
+import {CardsContainer} from "./components/SummaryCard/CardsContainer";
+import {Table} from "./components/dataTable/Table";
 
 
 function App() {
+    const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false)
+    const [user,setUser] = useState<userType>({username:"", password:""})
   return (
-            <MyContainer>
-                <Container maxWidth="md">
-                    <div className="App">
-                        <Box>
-                            <Paper style={{backgroundColor:"white", height:"25rem"}} >
-                                {/*<FormsManager />*/}
-                                <FormManagerForContribution />
-                            </Paper>
-                        </Box>
+            <MyUserContext.Provider value={{isLoggedIn,user, setIsLoggedIn, setUser}}>
 
-                    </div>
-                </Container>
+
+            <MyContainer>
+
+                {
+                    isLoggedIn ?
+
+                        <Container maxWidth="lg">
+                            <div className="App">
+                                <Box>
+                                    <Paper style={{backgroundColor:"white", height:"25rem"}} >
+                                        {/*<FormsManager />*/}
+                                        <CardsContainer />
+
+                                        <Table />
+                                        {/*<FormManagerForContribution />*/}
+                                    </Paper>
+                                </Box>
+
+                            </div>
+                        </Container>
+
+                        :
+                        <LoginComponent />
+
+                }
+
             </MyContainer>
+
+            </MyUserContext.Provider>
 
   );
 }
