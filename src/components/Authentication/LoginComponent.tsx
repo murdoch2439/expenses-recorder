@@ -25,7 +25,6 @@ const validationSchema = Yup.object({
 const initialValues ={
     username: "",
     password: "",
-    // operation_type: ""
 }
 
 const  CURRENT_PASSWORD = "1234"
@@ -68,7 +67,7 @@ export const LoginComponent: FunctionComponent=()=>{
                                             <TextInput stuff={stuff} name={"password"} type={"password"} label={"Password"}  onChange={handleChange}  />
 
                                         </div>
-                                        
+
                                         <Grid style={{marginTop:"1rem"}}>
                                             <Button
                                                 type={"submit"}
