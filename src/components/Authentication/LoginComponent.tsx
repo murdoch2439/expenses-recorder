@@ -62,13 +62,13 @@ export const LoginComponent: FunctionComponent=()=>{
                                 return(
                                     <form onSubmit={handleSubmit}>
                                         <div className={"splitter"}>
-                                        <TextInputWithoutFormik stuff={stuff}  name={"username"} type={"text"} label={"Username"} onChange={handleChange}  />
+                                        <TextInput stuff={stuff}  name={"username"} type={"text"} label={"Username"} onChange={handleChange}  />
                                         </div>
                                         <div className={"splitter"}>
-                                            <TextInputWithoutFormik stuff={stuff} name={"password"} type={"password"} label={"Password"}  onChange={handleChange}  />
+                                            <TextInput stuff={stuff} name={"password"} type={"password"} label={"Password"}  onChange={handleChange}  />
 
                                         </div>
-                                        {/*<GetCurrentFormStep step={activeStep} stuff ={stuff} />*/}
+                                        
                                         <Grid style={{marginTop:"1rem"}}>
                                             <Button
                                                 type={"submit"}
