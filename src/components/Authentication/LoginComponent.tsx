@@ -30,8 +30,7 @@ const initialValues ={
 const  CURRENT_PASSWORD = "1234"
 
 export const LoginComponent: FunctionComponent=()=>{
-    const [user, setUser] = useState({username:"", password:"",})
-    const handleOnChange =(e:any)=> setUser({...user, [e.target.name]:e.target.value})
+
     const {setIsLoggedIn} = useUserContext()
     return(
         <Container maxWidth="md">
