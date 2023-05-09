@@ -20,7 +20,7 @@ const validationSchema = Yup.object({
     password: Yup.string().required("This field is required"),
 })
 
-const initialValues ={
+const initialValues:FormValues ={
     username: "",
     password: "",
 }
