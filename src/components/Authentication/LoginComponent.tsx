@@ -18,7 +18,6 @@ interface FormValues {
 const validationSchema = Yup.object({
     username: Yup.string().required("This field is required"),
     password: Yup.string().required("This field is required"),
-    // operation_type: Yup.string().required("This field is required")
 })
 
 const initialValues ={
