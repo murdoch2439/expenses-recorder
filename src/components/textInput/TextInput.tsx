@@ -9,9 +9,10 @@ type props = {
     md?:number,
     stuff?:any,
     name:string,
+    onChange?: any
 }
 
-const TextInput : FunctionComponent<props> =({type, label, placeholder,md, name, stuff, })=>{
+const TextInput : FunctionComponent<props> =({type, onChange, label, placeholder,md, name, stuff, })=>{
     return(
 
             <Grid item xs={12} sm={12} md={md?md:6}>

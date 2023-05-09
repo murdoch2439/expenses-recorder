@@ -10,7 +10,7 @@ type props = {
 }
 
 
-const ErrandForm : FunctionComponent<props> =({stuff})=> {
+const ErrandForm : FunctionComponent<props> =({stuff,})=> {
 
 
     return(
