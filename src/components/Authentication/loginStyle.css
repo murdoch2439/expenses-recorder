@@ -1,0 +1,11 @@
+.login__container{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    height: 25rem;
+    padding:0 13rem;
+}
+
+.splitter{
+    margin: 2rem 0
+}
