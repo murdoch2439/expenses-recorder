@@ -9,12 +9,23 @@ interface Expense {
     total_amount_cdf:number | string
 }
 
+interface Contribution {
+    amount:number | string,
+    date:string,
+    operation_type:string,
+    currency:string,
+    member:number | string
+}
+
 export const TransactionService = {
     baseUrl: axios.create({
-        // baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api/transactions`
-        baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api/transactions`
+        baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api/transactions`
+        // baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api/transactions`
     }),
     addNewExpense: async function(expense:Expense){
         return await this.baseUrl.post("/add-expense", expense)
+    },
+    addNewContribution: async function(contribution: Contribution){
+        return await this.baseUrl.post("/add-contribution", contribution)
     }
 }

@@ -5,10 +5,11 @@ import {expenseType} from "../../utils/expenseType";
 type props = {
     label?:string,
     stuff?:any,
-    name?:any
+    name?:any,
+    dataList:any
 }
 
-const SelectInput : FunctionComponent<props> =({ label, stuff, name})=>{
+const SelectInput : FunctionComponent<props> =({ label, stuff, name, dataList})=>{
     return(
 
             <Grid item xs={12} sm={12} md={6}>
@@ -26,7 +27,7 @@ const SelectInput : FunctionComponent<props> =({ label, stuff, name})=>{
                         helperText={stuff.errors[name] && stuff.touched[name] && stuff.errors[name]}
 
                     >
-                        {expenseType.map((option) => (
+                        {dataList.map((option:any) => (
                             <MenuItem key={option.value} value={option.value}>
                                 {option.label}
                             </MenuItem>

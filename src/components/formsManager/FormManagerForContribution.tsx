@@ -2,38 +2,47 @@ import React, {FunctionComponent, useState} from "react"
 import {  Box, Grid, Button } from "@mui/material";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import ErrandForm from "../../forms/errandForm/ErrandForm";
+// import ErrandForm from "../../forms/errandForm/ErrandForm";
 import {TransactionService} from "../../api/transactionManager";
 import {currencyConverter} from "../../utils/currencyConverter";
+import ContributionForm from "../../forms/contribution/ContributionForm";
 
 
 interface FormValues {
-    total_amount: number | string;
+    amount: number | string;
     date: string;
+    member:string;
+    currency: string;
     operation_type: string;
 }
 
 const validationSchema = Yup.object({
-    total_amount: Yup.number().required("This field is required"),
+    amount: Yup.number().required("This field is required"),
     date: Yup.string().required("This field is required"),
+    member: Yup.string().required("This field is required"),
+    currency: Yup.string().required("This field is required"),
     operation_type: Yup.string().required("This field is required")
 })
 
 const initialValues ={
-    total_amount: "",
+    amount: "",
     date: "",
-    operation_type: ""
+    member:"",
+    currency: "",
+    operation_type: "",
+
+
 }
 
 
 
 
-const FormsManager : FunctionComponent =()=>{
+const FormManagerForContribution : FunctionComponent =()=>{
     const [activeStep, setActiveStep] = useState(0);
     const GetCurrentFormStep = ({step, stuff}:any) =>{
         switch(step){
             case 0:
-                return <ErrandForm stuff={stuff} />
+                return <ContributionForm stuff={stuff} />
             default:
                 throw new Error("Unknown step")
         }
@@ -45,8 +54,8 @@ const FormsManager : FunctionComponent =()=>{
                     initialValues={initialValues}
                     validationSchema={validationSchema}
                     onSubmit={async (values, { setSubmitting })=>{
-                        const transaction = {total_amount_usd :currencyConverter(values.total_amount), total_amount_cdf:values.total_amount, date: values.date, operation_type: values.operation_type, currency:"USD"}
-                        const response = await TransactionService.addNewExpense(transaction)
+                        const contribution = {amount :values.amount, currency:values.currency, date: values.date, operation_type: values.operation_type, member:values.member}
+                        const response = await TransactionService.addNewContribution(contribution)
                         console.log("response ===>",response.data)
                         setSubmitting(false);
 
@@ -77,4 +86,4 @@ const FormsManager : FunctionComponent =()=>{
     )
 }
 
-export default FormsManager
+export default FormManagerForContribution
