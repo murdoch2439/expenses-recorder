@@ -14,13 +14,15 @@ import {MyUserContext, userType} from "./context/UserContext";
 import {SummaryCard} from "./components/SummaryCard/SummaryCard";
 import {CardsContainer} from "./components/SummaryCard/CardsContainer";
 import {Table} from "./components/dataTable/Table";
+import {HomePage} from "./pages/homePage/HomePage";
 
 
 function App() {
     const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false)
     const [user,setUser] = useState<userType>({username:"", password:""})
+    const [information,setInformation] = useState([])
   return (
-            <MyUserContext.Provider value={{isLoggedIn,user, setIsLoggedIn, setUser}}>
+            <MyUserContext.Provider value={{isLoggedIn,user, information, setInformation, setIsLoggedIn, setUser}}>
 
 
             <MyContainer>
@@ -30,15 +32,7 @@ function App() {
 
                         <Container maxWidth="lg">
                             <div className="App">
-                                <Box>
-                                    <Paper style={{backgroundColor:"white", height:"25rem"}} >
-                                        {/*<FormsManager />*/}
-                                        <CardsContainer />
-
-                                        <Table />
-                                        {/*<FormManagerForContribution />*/}
-                                    </Paper>
-                                </Box>
+                                <HomePage />
 
                             </div>
                         </Container>

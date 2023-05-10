@@ -27,5 +27,8 @@ export const TransactionService = {
     },
     addNewContribution: async function(contribution: Contribution){
         return await this.baseUrl.post("/add-contribution", contribution)
+    },
+    getAllExpenses: async function(){
+        return await this.baseUrl.get("/get-all-contributions")
     }
 }
