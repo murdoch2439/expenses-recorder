@@ -10,7 +10,7 @@ import FormManagerForContribution from "../formsManager/FormManagerForContributi
 import {useUserContext} from "../../context/UserContext";
 
 export const ContributionFormModal=()=> {
-    // const [open, setOpen] = React.useState(false);
+
     const {openFormModal, setOpenFormModal} = useUserContext()
 
     const handleClickOpen = () => {
