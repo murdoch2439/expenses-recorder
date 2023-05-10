@@ -11,7 +11,6 @@ import {StateProvider} from "./context";
 import FormManagerForContribution from "./components/formsManager/FormManagerForContribution";
 import {LoginComponent} from "./components/Authentication/LoginComponent";
 import {MyUserContext, userType} from "./context/UserContext";
-import {SummaryCard} from "./components/SummaryCard/SummaryCard";
 import {CardsContainer} from "./components/SummaryCard/CardsContainer";
 import {Table} from "./components/dataTable/Table";
 import {HomePage} from "./pages/homePage/HomePage";
