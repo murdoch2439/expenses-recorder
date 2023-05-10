@@ -49,11 +49,7 @@ export const  Table : FunctionComponent=()=> {
     const {information:{contributions}} = useUserContext()
     return (
         <div style={{ height: 400, width: '100%' }}>
-            {/*{*/}
-            {/*    contributions.map((contribution:any, index:any) => (*/}
 
-            {/*    ))*/}
-            {/*}*/}
 
             {
                 contributions
