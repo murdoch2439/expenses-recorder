@@ -20,7 +20,7 @@ export const HomePage: FunctionComponent =()=>{
     },[])
     return(
         <Box>
-            <Paper style={{backgroundColor:"white", }} >
+            <Paper style={{backgroundColor:"white", padding:"0 6rem" }} >
                 {/*<FormsManager />*/}
 
                 <div style={{paddingTop:"3rem"}}>
@@ -32,7 +32,7 @@ export const HomePage: FunctionComponent =()=>{
                 <div style={{paddingTop:"3rem"}}>
                     <ContributionFormModal />
                 </div>
-                <div style={{paddingTop:"3rem"}}>
+                <div style={{paddingTop:"2rem"}}>
                     <Table />
                 </div>
 
