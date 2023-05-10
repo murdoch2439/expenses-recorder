@@ -54,7 +54,7 @@ export const  Table : FunctionComponent=()=> {
             {/*        <DataGrid*/}
             {/*            rows={rows}*/}
             {/*            columns={columns}*/}
-            {/*            pageSize={10}*/}
+
             {/*            rowGetter={({ index }:any) => rows[index]}*/}
             {/*        />*/}
             {/*    ))*/}
