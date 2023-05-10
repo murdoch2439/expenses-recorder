@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import {TransactionService} from "../../api/transactionManager";
 import {currencyConverter} from "../../utils/currencyConverter";
 import ContributionForm from "../../forms/contribution/ContributionForm";
+import {useUserContext} from "../../context/UserContext";
 
 
 interface FormValues {
@@ -39,6 +40,7 @@ const initialValues ={
 
 const FormManagerForContribution : FunctionComponent =()=>{
     const [activeStep, setActiveStep] = useState(0);
+    const {openFormModal, setOpenFormModal} = useUserContext()
     const GetCurrentFormStep = ({step, stuff}:any) =>{
         switch(step){
             case 0:
@@ -55,9 +57,18 @@ const FormManagerForContribution : FunctionComponent =()=>{
                     validationSchema={validationSchema}
                     onSubmit={async (values, { setSubmitting })=>{
                         const contribution = {amount :values.amount, currency:values.currency, date: values.date, operation_type: values.operation_type, member:values.member}
-                        const response = await TransactionService.addNewContribution(contribution)
-                        console.log("response ===>",response.data)
-                        setSubmitting(false);
+                        try{
+                            setOpenFormModal(false)
+                            const response = await TransactionService.addNewContribution(contribution)
+                            console.log("response ===>",response.data)
+                            setSubmitting(false);
+
+
+                        }catch (error) {
+                            setSubmitting(false);
+                            console.error(error)
+                        }
+
 
                     }}
                 >
