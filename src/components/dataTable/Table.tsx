@@ -52,8 +52,7 @@ export const  Table : FunctionComponent=()=> {
             {/*{*/}
             {/*    contributions.map((contribution:any, index:any) => (*/}
             {/*        <DataGrid*/}
-            {/*            rows={rows}*/}
-            {/*            columns={columns}*/}
+
 
             {/*            rowGetter={({ index }:any) => rows[index]}*/}
             {/*        />*/}
