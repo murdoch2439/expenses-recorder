@@ -11,7 +11,9 @@ export interface authType{
     user:{}
     setUser:(user:userType)=>void
     information:any,
-    setInformation:(information:any)=>void
+    setInformation:(information:any)=>void,
+    openFormModal:boolean,
+    setOpenFormModal:(state:boolean)=>void
 }
 
 export const MyUserContext = createContext<authType>({
@@ -21,6 +23,9 @@ export const MyUserContext = createContext<authType>({
     setUser:()=>{},
     information:[],
     setInformation:()=>{},
+    openFormModal:false,
+    setOpenFormModal:()=>{},
+
 })
 
 export const useUserContext = () => useContext(MyUserContext)

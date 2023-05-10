@@ -19,10 +19,11 @@ import {HomePage} from "./pages/homePage/HomePage";
 
 function App() {
     const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false)
+    const [openFormModal,setOpenFormModal] = useState<boolean>(false)
     const [user,setUser] = useState<userType>({username:"", password:""})
     const [information,setInformation] = useState([])
   return (
-            <MyUserContext.Provider value={{isLoggedIn,user, information, setInformation, setIsLoggedIn, setUser}}>
+            <MyUserContext.Provider value={{isLoggedIn,user, information,openFormModal, setOpenFormModal, setInformation, setIsLoggedIn, setUser}}>
 
 
             <MyContainer>

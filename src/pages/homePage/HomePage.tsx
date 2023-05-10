@@ -4,6 +4,7 @@ import {CardsContainer} from "../../components/SummaryCard/CardsContainer";
 import {Table} from "../../components/dataTable/Table";
 import {useUserContext} from "../../context/UserContext";
 import {TransactionService} from "../../api/transactionManager";
+import {ContributionFormModal} from "../../components/ContributionFormModal/ContributionFormModal";
 
 export const HomePage: FunctionComponent =()=>{
     const {setInformation} = useUserContext()
@@ -21,8 +22,16 @@ export const HomePage: FunctionComponent =()=>{
         <Box>
             <Paper style={{backgroundColor:"white", }} >
                 {/*<FormsManager />*/}
-                <CardsContainer />
 
+                <div style={{paddingTop:"3rem"}}>
+                    <CardsContainer />
+                </div>
+
+
+
+                <div style={{paddingTop:"3rem"}}>
+                    <ContributionFormModal />
+                </div>
                 <div style={{paddingTop:"3rem"}}>
                     <Table />
                 </div>
