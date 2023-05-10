@@ -6,46 +6,40 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import FormManagerForContribution from "../formsManager/FormManagerForContribution";
+import {useUserContext} from "../../context/UserContext";
 
 export const ContributionFormModal=()=> {
-    const [open, setOpen] = React.useState(false);
+    // const [open, setOpen] = React.useState(false);
+    const {openFormModal, setOpenFormModal} = useUserContext()
 
     const handleClickOpen = () => {
-        setOpen(true);
+        setOpenFormModal(true);
     };
 
     const handleClose = () => {
-        setOpen(false);
+        setOpenFormModal(false);
     };
 
     return (
         <div>
-            <div style={{display:"flex", alignItems:'center', justifyContent:"flex-end", paddingRight:"2rem"}}>
+            <div style={{display:"flex", alignItems:'center', justifyContent:"flex-end",}}>
                 <Button variant="outlined" onClick={handleClickOpen}>
                     Add contribution
                 </Button>
             </div>
 
-            <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+            <Dialog open={openFormModal} onClose={handleClose}>
+                {/*<DialogTitle>New Contribution</DialogTitle>*/}
                 <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
-                    </DialogContentText>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Email Address"
-                        type="email"
-                        fullWidth
-                        variant="standard"
-                    />
+                    {/*<DialogContentText>*/}
+                    {/*    Pay a monthly contribution for different projects*/}
+                    {/*</DialogContentText>*/}
+                    <FormManagerForContribution />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
+                    {/*<Button onClick={handleClose}>Subscribe</Button>*/}
                 </DialogActions>
             </Dialog>
         </div>

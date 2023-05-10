@@ -1,6 +1,7 @@
 import React, {FunctionComponent, useState} from "react"
 import './header.css'
 import Button from "@mui/material/Button";
+import {useUserContext} from "../../context/UserContext";
 // import Profile from "../../assets/profile.png"
 // import {useGlobalStore} from "../../store/Context";
 // import {BsLinkedin} from  "react-icons/bs"
@@ -12,9 +13,10 @@ const Header : FunctionComponent =()=>{
     // const { setActiveSection }= useGlobalStore()
     const [isToggled, setIsToggled]= useState(true)
     const [open, setOpen] = useState(false);
+    const {setOpenFormModal} = useUserContext()
 
     const handleClickOpen = () => {
-        setOpen(true);
+        setOpenFormModal(true);
     };
 
     const handleClose = () => {

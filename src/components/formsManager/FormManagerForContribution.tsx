@@ -49,7 +49,7 @@ const FormManagerForContribution : FunctionComponent =()=>{
     }
     return(
         <Box >
-            <div style={{padding:"1rem 10rem"}}>
+            <div style={{padding:"1rem 3rem"}}>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
