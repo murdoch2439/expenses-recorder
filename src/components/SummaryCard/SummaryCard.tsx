@@ -10,6 +10,7 @@ type props = {
 
 
 export const SummaryCard: FunctionComponent<props>=({icon, content, title, heading})=>{
+
     return(
         <div className={"summary__container"}>
             <h2>{heading}</h2>
