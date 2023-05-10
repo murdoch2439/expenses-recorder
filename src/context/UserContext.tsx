@@ -10,6 +10,8 @@ export interface authType{
     setIsLoggedIn: (state:boolean)=>void
     user:{}
     setUser:(user:userType)=>void
+    information:any,
+    setInformation:(information:any)=>void
 }
 
 export const MyUserContext = createContext<authType>({
@@ -17,6 +19,8 @@ export const MyUserContext = createContext<authType>({
     setIsLoggedIn:()=>{},
     user:{username:"", password:""},
     setUser:()=>{},
+    information:[],
+    setInformation:()=>{},
 })
 
 export const useUserContext = () => useContext(MyUserContext)
