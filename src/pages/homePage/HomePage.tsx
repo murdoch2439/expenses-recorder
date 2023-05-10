@@ -23,7 +23,11 @@ export const HomePage: FunctionComponent =()=>{
                 {/*<FormsManager />*/}
                 <CardsContainer />
 
-                <Table />
+                <div style={{paddingTop:"3rem"}}>
+                    <Table />
+                </div>
+
+
                 {/*<FormManagerForContribution />*/}
             </Paper>
         </Box>

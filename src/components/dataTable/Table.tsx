@@ -50,7 +50,6 @@ export const  Table : FunctionComponent=()=> {
     return (
         <div style={{ height: 400, width: '100%' }}>
 
-
             {
                 contributions
                     ?
