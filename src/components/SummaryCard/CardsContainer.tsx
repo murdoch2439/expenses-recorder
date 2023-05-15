@@ -36,7 +36,7 @@ export const CardsContainer: FunctionComponent =()=>{
             }
 
             {/*<Sumf.toLocaleString():""} />*/}
-            {/*<SummaryCard heading={"Members"} icon={<HiOutlineUserGroup className={"card__icon"} />} content={"10"} />*/}
+            {/*<SummaryCard heading={" className={"card__icon"} />} content={"10"} />*/}
         </div>
 
     )
