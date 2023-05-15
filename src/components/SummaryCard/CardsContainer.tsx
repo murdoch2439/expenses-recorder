@@ -36,7 +36,7 @@ export const CardsContainer: FunctionComponent =()=>{
             }
 
 
-            {/*<SummaryC />*/}
+
         </div>
 
     )
