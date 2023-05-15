@@ -35,7 +35,7 @@ export const CardsContainer: FunctionComponent =()=>{
                 })
             }
 
-            {/*<SummaryCard headinistics.total_balance_cdf.toLocaleString():""} />*/}
+            {/*<Sumf.toLocaleString():""} />*/}
             {/*<SummaryCard heading={"Members"} icon={<HiOutlineUserGroup className={"card__icon"} />} content={"10"} />*/}
         </div>
 
