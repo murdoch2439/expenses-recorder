@@ -13,7 +13,7 @@ export const SummaryCard: FunctionComponent<props>=({icon, content, title, headi
 
     return(
         <div className={"summary__container"}>
-            <h2>{heading}</h2>
+            {/*<h2>{heading}</h2>*/}
             <div className={"item__container"}>
 
                 <div>
