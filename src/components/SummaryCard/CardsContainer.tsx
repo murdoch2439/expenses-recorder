@@ -35,7 +35,6 @@ export const CardsContainer: FunctionComponent =()=>{
                 })
             }
 
-
         </div>
 
     )
