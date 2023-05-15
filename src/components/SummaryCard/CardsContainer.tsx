@@ -36,7 +36,7 @@ export const CardsContainer: FunctionComponent =()=>{
             }
 
             {/*<Sumf.toLocaleString():""} />*/}
-            {/*<SummaryCard  content={"10"} />*/}
+            {/*<SummaryC />*/}
         </div>
 
     )
