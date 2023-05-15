@@ -15,7 +15,7 @@ export const CardsContainer: FunctionComponent =()=>{
         {
             heading: "Total in",
             title: "CDF",
-            content: `${statistics ?statistics.total_balance_cdf.toFixed(2):""}`,
+            content: `${statistics ?statistics.total_balance_cdf.toLocaleString():""}`,
         },
         {
             icon: <HiOutlineUserGroup className={"card__icon"}/>,
