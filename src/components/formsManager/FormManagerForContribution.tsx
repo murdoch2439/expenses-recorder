@@ -39,16 +39,8 @@ const initialValues ={
 
 
 const FormManagerForContribution : FunctionComponent =()=>{
-    const [activeStep, setActiveStep] = useState(0);
-    const {openFormModal, setOpenFormModal} = useUserContext()
-    const GetCurrentFormStep = ({step, stuff}:any) =>{
-        switch(step){
-            case 0:
-                return <ContributionForm stuff={stuff} />
-            default:
-                throw new Error("Unknown step")
-        }
-    }
+    const {setOpenFormModal} = useUserContext()
+
     return(
         <Box >
             <div style={{padding:"1rem 3rem"}}>
@@ -78,7 +70,7 @@ const FormManagerForContribution : FunctionComponent =()=>{
 
                             return(
                                 <form onSubmit={handleSubmit}>
-                                    <GetCurrentFormStep step={activeStep} stuff ={stuff} />
+                                    <ContributionForm stuff ={stuff} />
                                     <Grid style={{marginTop:"1rem"}}>
                                         <Button
                                             type={"submit"}
