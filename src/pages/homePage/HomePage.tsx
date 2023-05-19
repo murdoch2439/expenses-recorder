@@ -8,7 +8,7 @@ import {TransactionService} from "../../api/transactionManager";
 import {ContributionFormModal} from "../../components/ContributionFormModal/ContributionFormModal";
 
 export const HomePage: FunctionComponent =()=>{
-    const {setInformation} = useUserContext()
+    const {setInformation, setMembers} = useUserContext()
     const [checked, setChecked] = useState(true);
 
     useEffect(()=>{
@@ -16,9 +16,12 @@ export const HomePage: FunctionComponent =()=>{
     },[])
 
     const getData =async ()=>{
-        const result = await TransactionService.getAllExpenses().then()
+        const result = await TransactionService.getAllExpenses()
+        const allMembers = await TransactionService.getAllMembers()
         setInformation(result.data)
-        console.log(result)
+        setMembers(allMembers.data.members)
+        console.log(result.data)
+        console.log(allMembers.data.members)
     }
 
     useEffect(()=>{
@@ -26,7 +29,7 @@ export const HomePage: FunctionComponent =()=>{
     },[])
     return(
         <Box>
-            <Paper style={{backgroundColor:"white", padding:"0 6rem" }} >
+            <Paper style={{backgroundColor:"white", padding:"1rem 6rem" }} >
 
                 <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
                     <Alert severity="success">
