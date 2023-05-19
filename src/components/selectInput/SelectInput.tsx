@@ -27,11 +27,24 @@ const SelectInput : FunctionComponent<props> =({ label, stuff, name, dataList})=
                         helperText={stuff.errors[name] && stuff.touched[name] && stuff.errors[name]}
 
                     >
-                        {dataList.map((option:any) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
-                            </MenuItem>
-                        ))}
+                        {/*{*/}
+                        {/*    dataList.map((option:any) => (*/}
+                        {/*    <MenuItem key={option.value} value={option.value}>*/}
+                        {/*        {option.label}*/}
+                        {/*    </MenuItem>*/}
+                        {/*))*/}
+                        {/*}*/}
+
+                        {
+                            dataList.map((option:any, index:any) => (
+                                // <p key={option._id}>{option.label}</p>
+                                <MenuItem key={index} value={`${option.firstName} ${option.lastName}`}>
+                                    {option.firstName}
+                                </MenuItem>
+                            ))
+                        }
+
+
                     </TextField>
                 </FormControl>
             </Grid>
