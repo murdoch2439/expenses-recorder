@@ -21,8 +21,9 @@ function App() {
     const [openFormModal,setOpenFormModal] = useState<boolean>(false)
     const [user,setUser] = useState<userType>({username:"", password:""})
     const [information,setInformation] = useState([])
+    const [members,setMembers] = useState([])
   return (
-            <MyUserContext.Provider value={{isLoggedIn,user, information,openFormModal, setOpenFormModal, setInformation, setIsLoggedIn, setUser}}>
+            <MyUserContext.Provider value={{isLoggedIn,user, information,openFormModal, members, setMembers, setOpenFormModal, setInformation, setIsLoggedIn, setUser}}>
 
 
             <MyContainer>
