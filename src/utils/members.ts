@@ -1,4 +1,4 @@
-const members = [
+const dummyMembers = [
     {value:"Hilaire Kalonji", label:"Hilaire Kalonji"},
     {value:"Aimée Kalonji", label:"Aimée Kalonji"},
     {value:"Nathalie Kalonji", label:"Nathalie Kalonji"},
@@ -16,5 +16,5 @@ const members = [
 ]
 
 export {
-    members
+    dummyMembers
 }
