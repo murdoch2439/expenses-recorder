@@ -19,16 +19,19 @@ interface Contribution {
 
 export const TransactionService = {
     baseUrl: axios.create({
-        baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api/transactions`
+        baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api`
         // baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api/transactions`
     }),
     addNewExpense: async function(expense:Expense){
-        return await this.baseUrl.post("/add-expense", expense)
+        return await this.baseUrl.post("/transactions/add-expense", expense)
     },
     addNewContribution: async function(contribution: Contribution){
-        return await this.baseUrl.post("/add-contribution", contribution)
+        return await this.baseUrl.post("/transactions/add-contribution", contribution)
     },
     getAllExpenses: async function(){
-        return await this.baseUrl.get("/get-all-contributions")
+        return await this.baseUrl.get("/transactions/get-all-contributions")
+    },
+    getAllMembers: async function(){
+        return await this.baseUrl.get("/users/get-all-members")
     }
 }
