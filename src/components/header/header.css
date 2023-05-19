@@ -84,7 +84,7 @@ header{
 /*============== Media QUERIES (MEDIUM DEVices) ==================*/
 @media screen and (max-width:1024px){
     header{
-        height:68vh;
+        height:4rem;
     }
     .section{
         margin-top: 6rem;
@@ -95,7 +95,7 @@ header{
 /*============== Media QUERIES (Small DEVices) ==================*/
 @media screen and (max-width:600px){
     header{
-        height:3rem
+        height:2rem
     }
     .header__socials, .scroll__down{
         display:none

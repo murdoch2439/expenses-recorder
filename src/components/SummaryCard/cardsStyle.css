@@ -1,9 +1,25 @@
 .cardsContainer{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    gap: 4%;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
 }
+
 
 .card__icon{
     font-size: 2rem;
+}
+
+
+@media screen and (max-width:700px){
+    .cardsContainer{
+        grid-template-columns: 100%;
+        /*display: 100%;*/
+        gap: 2rem;
+        /*align-items: space;*/
+        /*justify-content: space-between;*/
+    }
+
 }
