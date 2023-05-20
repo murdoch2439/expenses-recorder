@@ -1,5 +1,7 @@
 import  React from 'react';
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 import {FunctionComponent} from "react";
 import {useUserContext} from "../../context/UserContext";
 
@@ -55,7 +57,16 @@ export const  Table : FunctionComponent=()=> {
                         pageSizeOptions={[5, 10]}
                         checkboxSelection
                     />
-                    :"Loading"
+                    :
+                    <Stack spacing={1}>
+                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                    </Stack>
+
             }
 
         </div>
