@@ -1,5 +1,6 @@
 import React, {FunctionComponent, useState} from 'react';
 import {Button, Container, Grid} from "@mui/material";
+import {useNavigate} from "react-router-dom"
 import  "./loginStyle.css"
 import TextInput from "../textInput/TextInput";
 import TextInputWithoutFormik from "../textInput/TextInputWithoutFormik";
@@ -28,12 +29,44 @@ const initialValues:FormValues ={
 const  CURRENT_PASSWORD = "1234"
 
 export const LoginComponent: FunctionComponent=()=>{
+    const navigate = useNavigate();
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    // const {login} = useUserContext();
+    const handleClick = () => {
+        navigate("/")
+
+    };
+
+    // const handleLogin = async (values:FormValues) => {
+    //     try {
+    //         setLoading(true);
+    //         const response = await TransactionService.login(values.username, values.password);
+    //         if (response.status === 200) {
+    //             login(response.data);
+    //             navigation.navigate("Home");
+    //         } else {
+    //             setError(response.data.message);
+    //         }
+    //     } catch (error) {
+    //         setError(error.message);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // }
 
     const {setIsLoggedIn} = useUserContext()
     return(
         <Container maxWidth="md">
             <div className="login__container">
-                <h1>Login</h1>
+                <div style={{display:"flex",alignItems:"center", justifyContent:"space-between"}}>
+                    <h1>Login</h1>
+                    <Button variant="text" onClick={handleClick}>
+                        Go back
+                    </Button>
+                </div>
+
                 <div>
 
                     <Formik
@@ -44,6 +77,7 @@ export const LoginComponent: FunctionComponent=()=>{
                             console.log("Trying to authenticate this user ===>",user)
                             if(user.password === CURRENT_PASSWORD){
                                 setIsLoggedIn(true)
+                                navigate("/")
                             }
                             // const response = await TransactionService.addNewExpense(transaction)
                             // console.log("response ===>",response.data)
