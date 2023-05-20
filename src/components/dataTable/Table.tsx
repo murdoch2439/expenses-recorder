@@ -59,12 +59,12 @@ export const  Table : FunctionComponent=()=> {
                     />
                     :
                     <Stack spacing={1}>
-                        <Skeleton variant="rectangular" width={"100%"} height={40} />
-                        <Skeleton variant="rectangular" width={"100%"} height={40} />
-                        <Skeleton variant="rectangular" width={"100%"} height={40} />
-                        <Skeleton variant="rectangular" width={"100%"} height={40} />
-                        <Skeleton variant="rectangular" width={"100%"} height={40} />
-                        <Skeleton variant="rectangular" width={"100%"} height={40} />
+                        <Skeleton variant="rounded" width={"100%"} height={40} />
+                        <Skeleton variant="rounded" width={"100%"} height={40} />
+                        <Skeleton variant="rounded" width={"100%"} height={40} />
+                        <Skeleton variant="rounded" width={"100%"} height={40} />
+                        <Skeleton variant="rounded" width={"100%"} height={40} />
+                        <Skeleton variant="rounded" width={"100%"} height={40} />
                     </Stack>
 
             }
