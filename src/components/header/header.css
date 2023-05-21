@@ -80,7 +80,6 @@ header{
 .switch{
     position:absolute;
     right: -15rem;
-    /*bottom:5rem;*/
 
     font-weight: 300;
     font-size:0.9rem;
@@ -100,7 +99,8 @@ header{
 /*============== Media QUERIES (Small DEVices) ==================*/
 @media screen and (max-width:600px){
     header{
-        height:2rem
+        height:4rem;
+        padding:0 3rem;
     }
     .header__socials, .scroll__down{
         display:none
