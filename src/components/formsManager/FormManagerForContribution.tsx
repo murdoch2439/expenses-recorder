@@ -39,7 +39,7 @@ const initialValues ={
 
 
 const FormManagerForContribution : FunctionComponent =()=>{
-    const {setOpenFormModal} = useUserContext()
+    const {setOpenFormModal, setIsEntrySuccess} = useUserContext()
 
     return(
         <Box >
@@ -50,9 +50,12 @@ const FormManagerForContribution : FunctionComponent =()=>{
                     onSubmit={async (values, { setSubmitting })=>{
                         const contribution = {amount :values.amount, currency:values.currency, date: values.date, operation_type: values.operation_type, member:values.member}
                         try{
-                            setOpenFormModal(false)
                             const response = await TransactionService.addNewContribution(contribution)
                             console.log("response ===>",response.data)
+                            if(response.data.message === "success"){
+                                setOpenFormModal(false)
+                                setIsEntrySuccess(true)
+                            }
                             setSubmitting(false);
 
 

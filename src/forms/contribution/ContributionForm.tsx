@@ -22,7 +22,7 @@ const ContributionForm : FunctionComponent<props> =({stuff})=> {
             <Grid item   xs={12} style={{marginBottom:"1.5rem"}} >
                 <Typography variant="h6">New contribution</Typography>
             </Grid>
-            <Grid container spacing={2} >
+            <Grid container spacing={2}>
                 <SelectInput label={"Member"} dataList={members} stuff={stuff} name={MEMBER} />
                 <StandardSelectInput label={"Action type"} dataList={operationType} stuff={stuff} name={OPERATION_TYPE} />
                 <TextInput name={AMOUNT}  stuff={stuff} type={"number"} label={"Amount"} md={12} />
