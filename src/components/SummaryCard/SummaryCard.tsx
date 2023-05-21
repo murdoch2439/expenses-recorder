@@ -13,19 +13,18 @@ export const SummaryCard: FunctionComponent<props>=({icon, content, title, headi
 
     return(
         <div className={"summary__container"}>
-            {/*<h2>{heading}</h2>*/}
+            <h3 className={"summary__heading"}>{heading}</h3>
             <div className={"item__container"}>
 
                 <div>
                     {
                         icon
-                            ?
-                        icon:
-                        <h3>{title}</h3>
+                           &&
+                        icon
                     }
                 </div>
                 <div>
-                    <h3>{content}</h3>
+                    <h2>{content}</h2>
                 </div>
             </div>
 

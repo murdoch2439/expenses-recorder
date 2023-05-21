@@ -1,27 +1,32 @@
 import React, {FunctionComponent} from 'react';
 import {SummaryCard} from "./SummaryCard";
 import {HiOutlineUserGroup} from "react-icons/hi";
+import {GrTransaction} from "react-icons/gr";
+import {AiOutlineUnorderedList} from "react-icons/ai";
+import {CiMoneyBill} from "react-icons/ci";
 import "./cardsStyle.css"
 import {useUserContext} from "../../context/UserContext";
 
 export const CardsContainer: FunctionComponent =()=>{
-    const {information:{statistics}} =useUserContext()
+    const {information:{statistics, }, members} =useUserContext()
     const cards = [
         {
-            heading: "Total in",
+            icon: <CiMoneyBill className={"card__icon"}/>,
+            heading: "Balance",
             title: "USD",
-            content: `${statistics ?statistics.total_balance_usd.toFixed(2):""}`,
+            content: `${statistics ? statistics.balance.toFixed(2):"0"} $`,
         },
         {
-            heading: "Total in",
-            title: "CDF",
-            content: `${statistics ?statistics.total_balance_cdf.toLocaleString():""}`,
+            icon: <AiOutlineUnorderedList className={"card__icon"}/>,
+            heading: "Entries",
+            title: "Posts",
+            content: `${statistics ? statistics.entries: "0"}`
         },
         {
             icon: <HiOutlineUserGroup className={"card__icon"}/>,
-            heading: "Members",
+            heading: "Contributors",
             title: "Posts",
-            content: "10"
+            content: `${members ? members.length: "0"}`
         },
 
     ]
