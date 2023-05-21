@@ -56,7 +56,7 @@ export const LoginComponent: FunctionComponent=()=>{
     //     }
     // }
 
-    const {setIsLoggedIn} = useUserContext()
+    const {setIsLoggedIn, setUser} = useUserContext()
     return(
         <Container maxWidth="md">
             <div className="login__container">
@@ -77,6 +77,7 @@ export const LoginComponent: FunctionComponent=()=>{
                             console.log("Trying to authenticate this user ===>",user)
                             if(user.password === CURRENT_PASSWORD){
                                 setIsLoggedIn(true)
+                                setUser(user)
                                 navigate("/")
                             }
                             // const response = await TransactionService.addNewExpense(transaction)

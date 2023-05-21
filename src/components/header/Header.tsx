@@ -1,4 +1,5 @@
 import React, {FunctionComponent, useState} from "react"
+import {useNavigate} from "react-router-dom"
 import './header.css'
 import Button from "@mui/material/Button";
 import {useUserContext} from "../../context/UserContext";
@@ -10,26 +11,39 @@ import {useUserContext} from "../../context/UserContext";
 
 
 const Header : FunctionComponent =()=>{
+    const navigate = useNavigate()
+    const {user, setUser, setIsLoggedIn} = useUserContext()
+    const [activeSection, setActiveSection] = useState('home')
+
     // const { setActiveSection }= useGlobalStore()
     const [isToggled, setIsToggled]= useState(true)
     const [open, setOpen] = useState(false);
-    const {setOpenFormModal} = useUserContext()
 
-    const handleClickOpen = () => {
-        setOpenFormModal(true);
+    console.log("User===>", user)
+
+
+    const handleClick = () => {
+        if(user){
+            setUser(null)
+            setIsLoggedIn(false)
+
+            navigate("/")
+        }else{
+            navigate("/login")
+        }
+
+
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+
     return(
         <header>
             <div className={"header__container"}>
 
                 <div className={"me"}>
 
-                    <Button variant="outlined" onClick={handleClickOpen}>
-                        Open form dialog
+                    <Button variant="outlined" onClick={handleClick}>
+                        {!user ? "Login": "Logout"}
                     </Button>
 
                     {/*<img src={Profile} alt={""} />*/}

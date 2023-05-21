@@ -1,6 +1,11 @@
 header{
     height:5rem;
-    padding-top: 1rem;
+    /*padding-top: 1rem;*/
+    padding: 0 7rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
     /*overflow:hidden;*/
     /*background: url("../../assets/computer.jpg");*/
     /*background: url("../../assets/bg.png");*/

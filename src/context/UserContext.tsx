@@ -8,8 +8,10 @@ export interface userType{
 export interface authType{
     isLoggedIn: boolean
     setIsLoggedIn: (state:boolean)=>void
-    user:{}
-    setUser:(user:userType)=>void
+    isEntrySuccess:boolean
+    setIsEntrySuccess: (state:boolean)=>void
+    user:{}|null
+    setUser:(user:userType | null)=>void
     information:any,
     members:any,
     setInformation:(information:any)=>void,
@@ -20,8 +22,10 @@ export interface authType{
 
 export const MyUserContext = createContext<authType>({
     isLoggedIn:false,
+    isEntrySuccess:false,
+    setIsEntrySuccess:()=>{},
     setIsLoggedIn:()=>{},
-    user:{username:"", password:""},
+    user:{},
     setUser:()=>{},
     information:[],
     members:[],

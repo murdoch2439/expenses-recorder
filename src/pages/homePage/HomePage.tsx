@@ -1,27 +1,45 @@
-import React, {FunctionComponent, useEffect, useState} from "react";
-import {Box, Paper, AlertTitle, Alert, Slide} from "@mui/material";
-
+import React, {FunctionComponent, useEffect, useState, forwardRef, SyntheticEvent} from "react";
+import  { Box, Paper, AlertTitle, Slide, Snackbar, Button} from "@mui/material";
 import {CardsContainer} from "../../components/SummaryCard/CardsContainer";
 import {Table} from "../../components/dataTable/Table";
 import {useUserContext} from "../../context/UserContext";
 import {TransactionService} from "../../api/transactionManager";
 import {ContributionFormModal} from "../../components/ContributionFormModal/ContributionFormModal";
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
+    props,
+    ref,
+) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export const HomePage: FunctionComponent =()=>{
-    const {setInformation, setMembers} = useUserContext()
     const [checked, setChecked] = useState(true);
+    const {setInformation, setMembers, isLoggedIn, isEntrySuccess, setIsEntrySuccess} = useUserContext()
 
-    useEffect(()=>{
-        setTimeout(() => {setChecked(!checked)},3000)
-    },[])
+
+    const handleClose = (event?: SyntheticEvent | Event, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setIsEntrySuccess(false);
+    };
+
 
     const getData =async ()=>{
-        const result = await TransactionService.getAllExpenses()
-        const allMembers = await TransactionService.getAllMembers()
-        setInformation(result.data)
-        setMembers(allMembers.data.members)
-        console.log(result.data)
-        console.log(allMembers.data.members)
+        try{
+            const result = await TransactionService.getAllExpenses()
+            const allMembers = await TransactionService.getAllMembers()
+            setInformation(result.data)
+            setMembers(allMembers.data.members)
+            console.log(result.data)
+            console.log(allMembers.data.members)
+        }catch (e) {
+            console.error("error on getting data ===>", e)
+        }
+
     }
 
     useEffect(()=>{
@@ -29,25 +47,30 @@ export const HomePage: FunctionComponent =()=>{
     },[])
     return(
         <Box>
-            <Paper style={{backgroundColor:"white", padding:"1rem 6rem" }} >
+            <Paper style={{backgroundColor:"white", padding:"1rem 2rem" }} >
 
-                <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
-                    <Alert severity="success">
-                        <AlertTitle>Success</AlertTitle>
-                        <strong>The contribution has been recorded successfully!</strong>
-                    </Alert>
+                <Snackbar style={{left:108}} open={isEntrySuccess} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                            {/*<AlertTitle>Success</AlertTitle>*/}
+                            The contribution has been recorded successfully!
+                            {/*<strong>The contribution has been recorded successfully!</strong>*/}
+                        </Alert>
+                </Snackbar>
 
-                </Slide>
 
 
                 {/*<FormsManager />*/}
+
 
                 <div style={{paddingTop:"3rem"}}>
                     <CardsContainer />
                 </div>
 
                 <div style={{paddingTop:"3rem"}}>
-                    <ContributionFormModal />
+                    {
+                        isLoggedIn && <ContributionFormModal />
+                    }
+
                 </div>
                 <div style={{paddingTop:"2rem"}}>
                     <Table />

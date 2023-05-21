@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import {Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "./components/themes/theme";
 import { makeStyles, } from '@mui/material/styles';
@@ -19,29 +20,55 @@ import {HomePage} from "./pages/homePage/HomePage";
 function App() {
     const [isLoggedIn,setIsLoggedIn] = useState<boolean>(false)
     const [openFormModal,setOpenFormModal] = useState<boolean>(false)
-    const [user,setUser] = useState<userType>({username:"", password:""})
+    const [user,setUser] = useState<userType | null>(null)
     const [information,setInformation] = useState([])
     const [members,setMembers] = useState([])
+    const [isEntrySuccess,setIsEntrySuccess] = useState(false)
   return (
-            <MyUserContext.Provider value={{isLoggedIn,user, information,openFormModal, members, setMembers, setOpenFormModal, setInformation, setIsLoggedIn, setUser}}>
+            <MyUserContext.Provider value={{isLoggedIn,user, information,openFormModal, members, isEntrySuccess, setIsEntrySuccess, setMembers, setOpenFormModal, setInformation, setIsLoggedIn, setUser}}>
 
 
             <MyContainer>
 
-                {
-                    isLoggedIn ?
-
+                <Routes>
+                    <Route  path="" element={
                         <Container maxWidth="lg">
-                            <div className="App">
-                                <HomePage />
+                        <div className="App">
+                            <HomePage />
 
-                            </div>
-                        </Container>
+                        </div>
+                    </Container>}
+                    />
+                    <Route  path="/login" element={<LoginComponent />} />
+                    {/*<Route  path="/contact" element={<ContactPage />} />*/}
+                    {/*<Route  path="*" element={<NoMatchPage />} />*/}
+                </Routes>
 
-                        :
-                        <LoginComponent />
 
-                }
+
+                        {/*<Container maxWidth="lg">*/}
+                        {/*    <div className="App">*/}
+                        {/*        <HomePage />*/}
+
+                        {/*    </div>*/}
+                        {/*</Container>*/}
+
+
+
+                {/*{*/}
+                {/*    isLoggedIn ?*/}
+
+                {/*        <Container maxWidth="lg">*/}
+                {/*            <div className="App">*/}
+                {/*                <HomePage />*/}
+
+                {/*            </div>*/}
+                {/*        </Container>*/}
+
+                {/*        :*/}
+                {/*        <LoginComponent />*/}
+
+                {/*}*/}
 
             </MyContainer>
 
