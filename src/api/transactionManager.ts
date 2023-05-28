@@ -19,8 +19,8 @@ interface Contribution {
 
 export const TransactionService = {
     baseUrl: axios.create({
-        baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api`
-        // baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api/transactions`
+        // baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api`
+        baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api`
     }),
     addNewExpense: async function(expense:Expense){
         return await this.baseUrl.post("/transactions/add-expense", expense)
