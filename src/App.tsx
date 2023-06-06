@@ -15,6 +15,7 @@ import {MyUserContext, userType} from "./context/UserContext";
 import {CardsContainer} from "./components/SummaryCard/CardsContainer";
 import {Table} from "./components/dataTable/Table";
 import {HomePage} from "./pages/homePage/HomePage";
+import {DebtComponent} from "./components/Debt/DebtComponent";
 
 
 function App() {
@@ -35,12 +36,11 @@ function App() {
                         <Container maxWidth="lg">
                         <div className="App">
                             <HomePage />
-
                         </div>
                     </Container>}
                     />
                     <Route  path="/login" element={<LoginComponent />} />
-                    {/*<Route  path="/contact" element={<ContactPage />} />*/}
+                    <Route  path="/debt-recorder" element={<DebtComponent />} />
                     {/*<Route  path="*" element={<NoMatchPage />} />*/}
                 </Routes>
 

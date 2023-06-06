@@ -5,6 +5,10 @@ const operationType = [
     // {value:"transportation", label:"Transportation"},
 ]
 
+const debts =[
+    {value:"indebtedness", label:"Indebtedness"},
+]
+
 export {
-    operationType
+    operationType, debts
 }

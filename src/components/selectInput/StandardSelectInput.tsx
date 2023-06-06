@@ -7,12 +7,13 @@ type props = {
     stuff?:any,
     name?:any,
     dataList:any
+    md?:any
 }
 
-export const StandardSelectInput : FunctionComponent<props> =({ label, stuff, name, dataList})=>{
+export const StandardSelectInput : FunctionComponent<props> =({ label, stuff, name, dataList, md})=>{
     return(
 
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={md?md:6}>
             <FormControl fullWidth>
                 <TextField
                     name={name}
