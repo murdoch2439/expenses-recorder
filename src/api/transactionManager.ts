@@ -17,10 +17,19 @@ interface Contribution {
     member:number | string
 }
 
+interface DebtRecord {
+    amount:number | string,
+    date:string,
+    operation_type:string,
+    currency:string,
+    debtor:number | string
+    comment:string
+}
+
 export const TransactionService = {
     baseUrl: axios.create({
-        // baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api`
-        baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api`
+        baseURL:`http://${LOCAL_BACK_END_PROD_PROXY}:5000/api`
+        // baseURL:`https://${ONLINE_BACK_END_PROD_PROXY}/api`
     }),
     addNewExpense: async function(expense:Expense){
         return await this.baseUrl.post("/transactions/add-expense", expense)
@@ -33,5 +42,9 @@ export const TransactionService = {
     },
     getAllMembers: async function(){
         return await this.baseUrl.get("/users/get-all-members")
+    },
+    addDebt: async function(debtRecord:DebtRecord){
+        return await this.baseUrl.post("/transactions/debts-recording", debtRecord)
+
     }
 }

@@ -13,7 +13,7 @@ import FormManagerForContribution from "./components/formsManager/FormManagerFor
 import {LoginComponent} from "./components/Authentication/LoginComponent";
 import {MyUserContext, userType} from "./context/UserContext";
 import {CardsContainer} from "./components/SummaryCard/CardsContainer";
-import {Table} from "./components/dataTable/Table";
+
 import {HomePage} from "./pages/homePage/HomePage";
 import {DebtComponent} from "./components/Debt/DebtComponent";
 
