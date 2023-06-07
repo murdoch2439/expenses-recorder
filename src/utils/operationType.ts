@@ -9,6 +9,12 @@ const debts =[
     {value:"indebtedness", label:"Indebtedness"},
 ]
 
+const projectOperations =[
+    {value:"cash in", label:"Cash in"},
+    {value:"cash out space renting", label:"Cash out monthly space rent"},
+    // {value:"indebtedness", label:"Indebtedness"},
+]
+
 export {
-    operationType, debts
+    operationType, debts, projectOperations
 }

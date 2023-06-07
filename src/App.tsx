@@ -39,6 +39,7 @@ function App() {
                     />
                     <Route  path="/login" element={<LoginComponent />} />
                     <Route  path="/debt-recorder" element={<DebtComponent />} />
+                    <Route  path="/renting-project" element={<DebtComponent />} />
                     {/*<Route  path="*" element={<NoMatchPage />} />*/}
                 </Routes>
 

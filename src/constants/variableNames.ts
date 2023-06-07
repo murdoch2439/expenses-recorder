@@ -10,11 +10,12 @@ const MEMBER= "member"
 const CURRENCY = "currency"
 const DATE = "date"
 const OPERATION_TYPE = "operation_type"
+const OPERATION_MAKER = "operation_maker"
 const DEBTOR = "debtor"
 const COMMENT = "comment"
 
 export { ONLINE_BACK_END_PROD_PROXY,
     DATE, OPERATION_TYPE, TOTAL_AMOUNT,
     LOCAL_BACK_END_PROD_PROXY, AMOUNT, CURRENCY,
-    MEMBER, DEBTOR, COMMENT
+    MEMBER, DEBTOR, COMMENT, OPERATION_MAKER
 }
